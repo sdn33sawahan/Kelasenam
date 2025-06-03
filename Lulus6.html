@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kelulusan Siswa Kelas 6 - SD Negeri 33 Sawahan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins */
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6; /* Warna latar belakang halaman */
+            color: #333; /* Warna teks default */
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px; /* Lebar maksimum konten */
+            margin: 0 auto; /* Pusatkan konten */
+            padding: 0 20px; /* Padding samping */
+        }
+
+        /* Header Styling */
+        .header {
+            background-color: #ffffff;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 100;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: flex-start; /* Mengubah menjadi flex-start karena hanya ada logo */
+            align-items: center;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 1.8em;
+            color: #333;
+        }
+
+        .logo p {
+            margin: 0;
+            font-size: 0.8em;
+            color: #666;
+        }
+
+        /* Navbar styling removed as the button is removed */
+        /* .navbar ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar ul li a, .navbar ul li button {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: 600;
+            transition: color 0.3s ease;
+            background: none;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1em;
+        }
+
+        .navbar ul li a:hover, .navbar ul li button:hover {
+            color: #0056b3;
+        } */
+
+        /* Hero Section Styling */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            margin-bottom: 40px;
+            margin-top: 0; /* Menghilangkan jarak dari atas jika ada */
+        }
+
+        .hero-section .container {
+            padding: 0; /* Remove padding in this container */
+        }
+
+        /* Styling for school illustration container */
+        .school-illustration {
+            width: 100%;
+            height: 400px; /* Set fixed height for SVG container */
+            overflow: hidden; /* Hide if any part of SVG overflows */
+            border-bottom-left-radius: 15px; /* Rounded corners at bottom */
+            border-bottom-right-radius: 15px;
+        }
+
+        /* Styling for school SVG inside */
+        .school-illustration .school-svg {
+            width: 100%; /* Ensure SVG fills container width */
+            height: 100%; /* Ensure SVG fills container height */
+            display: block; /* Remove extra space below SVG */
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%); /* Center overlay */
+            background-color: rgba(255, 255, 255, 0.85); /* Semi-transparent background */
+            padding: 15px 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            white-space: nowrap; /* Prevent text wrapping */
+        }
+
+        .hero-overlay h2 {
+            margin: 0 0 5px;
+            font-size: 2.5em;
+            color: #2c3e50;
+        }
+
+        .hero-overlay p {
+            margin: 0;
+            font-size: 1.2em; /* Default font size for paragraphs in overlay */
+            color: #555;
+        }
+
+        /* New style for the school name in overlay */
+        .hero-overlay .school-name-overlay {
+            font-size: 1.2em; /* Same as other paragraphs for consistency */
+            color: #555; /* Same color as other paragraphs */
+            margin-top: 5px; /* Add a small margin above it */
+        }
+
+        /* Content Section Styling */
+        .content-section .container {
+            display: flex;
+            justify-content: space-between; /* Space between columns */
+            align-items: center;
+            gap: 40px; /* Gap between columns */
+            margin-bottom: 60px;
+        }
+
+        .congratulations-card {
+            flex: 2; /* Takes 2 parts of available space */
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .congratulations-card h3 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .congratulations-card p {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        /* Styling for graduates illustration container */
+        .graduates-illustration {
+            flex: 1; /* Takes 1 part of available space */
+            text-align: center;
+            max-width: 100%; /* Ensure it doesn't exceed container width */
+            height: 250px; /* Set fixed height for SVG container */
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        /* Styling for graduates SVG inside */
+        .graduates-illustration .graduates-svg {
+            width: 100%; /* Ensure SVG fills container width */
+            height: 100%; /* Ensure SVG fills container height */
+            display: block; /* Remove extra space below SVG */
+        }
+
+        /* Search Section Styling */
+        .search-section {
+            background-color: #ffffff;
+            padding: 50px 0;
+            text-align: center;
+            border-top: 1px solid #eee; /* Line above search section */
+        }
+
+        .search-section h2 {
+            font-size: 2.5em;
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .search-section p {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            display: flex;
+            justify-content: center;
+            gap: 15px; /* Gap between input and button */
+            margin-bottom: 40px;
+        }
+
+        .search-box input {
+            padding: 12px 20px;
+            width: 300px;
+            border: 2px solid #ddd;
+            border-radius: 25px;
+            font-size: 1em;
+            outline: none; /* Remove outline on focus */
+            transition: border-color 0.3s ease;
+        }
+
+        .search-box input:focus {
+            border-color: #007bff; /* Border color on focus */
+        }
+
+        .search-box button {
+            background-color: #28a745; /* Search button color */
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 25px;
+            font-size: 1em;
+            cursor: pointer; /* Change cursor to pointer */
+            transition: background-color 0.3s ease;
+        }
+
+        .search-box button:hover {
+            background-color: #218838; /* Search button hover color */
+        }
+
+        .search-results {
+            margin-top: 30px;
+            text-align: left;
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            max-width: 800px; /* Maximum width of search results */
+            margin-left: auto;
+            margin-right: auto; /* Center search results */
+        }
+
+        .search-results h4 {
+            color: #2c3e50;
+            font-size: 1.5em;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+
+        .student-data p {
+            margin: 8px 0;
+            font-size: 1.1em;
+            color: #444;
+        }
+
+        .student-data strong {
+            color: #000;
+        }
+
+        .error-message {
+            color: #dc3545; /* Red color for error messages */
+            font-weight: 600;
+            font-size: 1.1em;
+        }
+
+        /* Footer Styling */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9em;
+        }
+
+        /* Modal Styling (removed as the modal is removed) */
+        /* .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0.3s, opacity 0.3s;
+        }
+
+        .modal-overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            max-width: 90%;
+            max-height: 80%;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(20px);
+            transition: transform 0.3s ease-out;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+
+        .modal-close-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.8em;
+            color: #777;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close-button:hover {
+            color: #333;
+        }
+
+        .modal-content h3 {
+            margin-top: 0;
+            color: #2c3e50;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .modal-search-box {
+            margin-bottom: 20px;
+        }
+
+        .modal-search-box input {
+            width: calc(100% - 24px);
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1em;
+            box-sizing: border-box;
+        }
+
+        .modal-content ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .modal-content ul li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 1.1em;
+            color: #444;
+        }
+
+        .modal-content ul li:last-child {
+            border-bottom: none;
+        } */
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .header .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            /* .navbar ul {
+                flex-direction: column;
+                margin-top: 15px;
+                gap: 10px;
+            } */
+
+            .hero-overlay {
+                position: static; /* Remove absolute positioning */
+                transform: none;
+                margin-top: 20px;
+                width: 90%; /* Adjust width */
+            }
+
+            .content-section .container {
+                flex-direction: column; /* Change flex direction to column */
+                gap: 30px;
+            }
+
+            .search-box {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .search-box input {
+                width: 80%; /* Adjust input width */
+            }
+
+            .search-results {
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo h1 {
+                font-size: 1.5em;
+            }
+            .logo p {
+                font-size: 0.7em;
+            }
+            /* .navbar ul li a, .navbar ul li button {
+                font-size: 0.9em;
+            } */
+            .hero-overlay h2 {
+                font-size: 1.8em;
+            }
+            .hero-overlay p {
+                font-size: 1em;
+            }
+            .congratulations-card h3 {
+                font-size: 1.8em;
+            }
+            .search-section h2 {
+                font-size: 2em;
+            }
+            /* .modal-content {
+                padding: 20px;
+            }
+            .modal-content h3 {
+                font-size: 1.5em;
+            }
+            .modal-content ul li {
+                font-size: 1em;
+            }
+            .modal-search-box input {
+                width: calc(100% - 20px);
+            } */
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>SD Negeri 33 Sawahan</h1>
+                <p>Website Kelulusan Siswa</p>
+            </div>
+            <!-- <nav class="navbar">
+                <ul>
+                    <li><button id="show-all-nisn-button">Cari NISN Berdasarkan Nama</button></li>
+                </ul>
+            </nav> -->
+        </div>
+    </header>
+
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="school-illustration">
+                    <svg viewBox="0 0 1200 400" preserveAspectRatio="xMidYMid meet" class="school-svg">
+                        <rect x="0" y="0" width="1200" height="400" fill="#E0F2F7"/> <path d="M0 250 L0 400 L1200 400 L1200 250 Z" fill="#A8DADC"/> <path d="M500 100 L700 100 L700 250 L500 250 Z" fill="#F4A261"/> <path d="M500 100 L600 50 L700 100 Z" fill="#E76F51"/> <rect x="530" y="150" width="40" height="60" fill="#F8F9FA"/> <rect x="540" y="160" width="5" height="10" fill="#333"/> <rect x="510" y="110" width="20" height="20" fill="#F8F9FA"/> <rect x="570" y="110" width="20" height="20" fill="#F8F9FA"/> <rect x="400" y="180" width="80" height="70" fill="#F4A261"/> <path d="M400 180 L440 140 L480 180 Z" fill="#E76F51"/> <rect x="420" y="195" width="40" height="40" fill="#F8F9FA"/> <rect x="720" y="180" width="80" height="70" fill="#F4A261"/> <path d="M720 180 L760 140 L800 180 Z" fill="#E76F51"/> <rect x="740" y="195" width="40" height="40" fill="#F8F9FA"/> <circle cx="600" cy="80" r="25" fill="#F4D35E"/> <path d="M100 250 L100 400 L150 400 L150 250 Z" fill="#2A9D8F"/> <circle cx="125" cy="200" r="60" fill="#264653"/> <path d="M1000 250 L1000 400 L1050 400 L1050 250 Z" fill="#2A9D8F"/> <circle cx="1025" cy="200" r="60" fill="#264653"/> </svg>
+                </div>
+                <div class="hero-overlay">
+                    <h2>Selamat & Sukses!</h2>
+                    <p>Kelulusan Siswa Kelas 6 Tahun Ajaran 2024/2025</p>
+                    <p class="school-name-overlay">SD Negeri 33 Sawahan</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="congratulations-card">
+                    <h3>Congratulations Graduates</h3>
+                    <p>Selamat kepada seluruh siswa/i Kelas 6 SD Negeri 33 Sawahan Kecamatan Padang Timur yang telah menyelesaikan pendidikan dasar. Semoga ilmu yang didapat menjadi bekal menuju masa depan yang cerah dan gemilang. Teruslah belajar dan berkarya!</p>
+                </div>
+                <div class="graduates-illustration">
+                    <svg viewBox="0 0 400 250" preserveAspectRatio="xMidYMid meet" class="graduates-svg">
+                        <rect x="0" y="0" width="400" height="250" fill="#F4F7F6"/>
+
+                        <circle cx="80" cy="100" r="30" fill="#FAD2E1"/> <rect x="60" y="120" width="40" height="80" fill="#8D6A9F"/> <rect x="50" y="90" width="60" height="10" fill="#333"/> <line x1="80" y1="90" x2="90" y2="70" stroke="#F4D35E" stroke-width="2"/> <circle cx="150" cy="105" r="30" fill="#FAD2E1"/> <rect x="130" y="125" width="40" height="80" fill="#5F9EA0"/> <rect x="120" y="95" width="60" height="10" fill="#333"/> <line x1="150" y1="95" x2="160" y2="75" stroke="#F4D35E" stroke-width="2"/> <circle cx="220" cy="100" r="30" fill="#FAD2E1"/> <rect x="200" y="120" width="40" height="80" fill="#E76F51"/> <rect x="190" y="90" width="60" height="10" fill="#333"/> <line x1="220" y1="90" x2="230" y2="70" stroke="#F4D35E" stroke-width="2"/> <circle cx="290" cy="105" r="30" fill="#FAD2E1"/> <rect x="270" y="125" width="40" height="80" fill="#2A9D8F"/> <rect x="260" y="95" width="60" height="10" fill="#333"/> <line x1="290" y1="95" x2="300" y2="75" stroke="#F4D35E" stroke-width="2"/> <circle cx="360" cy="100" r="30" fill="#FAD2E1"/> <rect x="340" y="120" width="40" height="80" fill="#F4D35E"/> <rect x="330" y="90" width="60" height="10" fill="#333"/> <line x1="360" y1="90" x2="370" y2="70" stroke="#F4D35E" stroke-width="2"/> </svg>
+                </div>
+            </div>
+        </section>
+
+        <section class="search-section">
+            <div class="container">
+                <h2>Cari Data Kelulusan Siswa</h2>
+                <p>Masukkan NISN siswa untuk melihat detail kelulusan.</p>
+                <div class="search-box">
+                    <input type="text" id="nisn-input" placeholder="Masukkan NISN siswa...">
+                    <button id="search-button">Cari</button>
+                </div>
+                <div id="search-results" class="search-results">
+                    </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 SD Negeri 33 Sawahan. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
+
+    <!-- <div id="nisn-modal-overlay" class="modal-overlay">
+        <div class="modal-content">
+            <button id="modal-close-button" class="modal-close-button">&times;</button>
+            <h3>Cari NISN Berdasarkan Nama</h3>
+            <div class="modal-search-box">
+                <input type="text" id="modal-search-input" placeholder="Cari berdasarkan nama...">
+            </div>
+            <ul id="nisn-list">
+                </ul>
+        </div>
+    </div> -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Student graduation data
+            const studentsData = [
+                { nama: 'Abil Kanaka Defa', jk: 'L', nisn: '3129330289', tempatLahir: 'Padang', tanggalLahir: '2012-06-29' },
+                { nama: 'Adam Milkyway', jk: 'L', nisn: '3129087185', tempatLahir: 'Padang', tanggalLahir: '2012-06-26' },
+                { nama: 'Ahmad Habibie Satriawan', jk: 'L', nisn: '0117098180', tempatLahir: 'Surabaya', tanggalLahir: '2011-11-01' },
+                { nama: 'AIQAL FURQAN HAMIDI', jk: 'L', nisn: '0135515852', tempatLahir: 'PADANG', tanggalLahir: '2013-01-01' },
+                { nama: 'Airlangga Pratama Azmon', jk: 'L', nisn: '0124501831', tempatLahir: 'Padang', tanggalLahir: '2012-11-14' },
+                { nama: 'AISHA PUTRI RIVALSON', jk: 'P', nisn: '0132675346', tempatLahir: 'Padang', tanggalLahir: '2013-03-14' },
+                { nama: 'ALESSA BILQIS OKTAFIONA', jk: 'P', nisn: '3123167007', tempatLahir: 'PADANG', tanggalLahir: '2012-10-20' },
+                { nama: 'Alhameed Zaky', jk: 'L', nisn: '0128739959', tempatLahir: 'Padang', tanggalLahir: '2012-09-04' },
+                { nama: 'Alinka Tania Anandita', jk: 'P', nisn: '0132440290', tempatLahir: 'Padang', tanggalLahir: '2013-02-18' },
+                { nama: 'Ananda Kartika Saogo', jk: 'P', nisn: '0137847299', tempatLahir: 'Padang', tanggalLahir: '2013-01-25' },
+                { nama: 'Annisa Falya Salsabila Zahra', jk: 'P', nisn: '0134445700', tempatLahir: 'Padang', tanggalLahir: '2013-01-15' },
+                { nama: 'ANUGRAH BINTANG LESMANA', jk: 'L', nisn: '0126517436', tempatLahir: 'Padang', tanggalLahir: '2012-04-02' },
+                { nama: 'AQIFA NAILA RAMADHANI', jk: 'P', nisn: '0131960329', tempatLahir: 'PADANG', tanggalLahir: '2013-07-11' },
+                { nama: 'Aqila Afrilya', jk: 'P', nisn: '0138097131', tempatLahir: 'Padang', tanggalLahir: '2013-04-10' },
+                { nama: 'Aqila Zhafira Hermansyah', jk: 'P', nisn: '3121916894', tempatLahir: 'Padang', tanggalLahir: '2012-12-19' },
+                { nama: 'AQILASHA QUEENAYA RAHMAN', jk: 'P', nisn: '0134491162', tempatLahir: 'PADANG', tanggalLahir: '2013-02-07' },
+                { nama: 'AQILLA NAJWA RIFINA', jk: 'P', nisn: '0129846930', tempatLahir: 'PADANG', tanggalLahir: '2013-01-26' },
+                { nama: 'ARGIL PATRIZIO SERARIS', jk: 'L', nisn: '3127770174', tempatLahir: 'PADANG', tanggalLahir: '2012-05-16' },
+                { nama: 'Arrada Najla Azurahafazhah', jk: 'P', nisn: '3123341065', tempatLahir: 'Padang', tanggalLahir: '2012-12-23' },
+                { nama: 'ATIQAH AULIA DHYANDRA', jk: 'P', nisn: '3124156411', tempatLahir: 'PADANG', tanggalLahir: '2012-10-31' },
+                { nama: 'AUFAR SHALAHAN HIRZI', jk: 'L', nisn: '0123879451', tempatLahir: 'BUKITTINGGI', tanggalLahir: '2012-12-11' },
+                { nama: 'AURA ASSYIFA YURA', jk: 'P', nisn: '0127977791', tempatLahir: 'PADANG', tanggalLahir: '2012-09-10' },
+                { nama: 'Avika Putri', jk: 'P', nisn: '0122995462', tempatLahir: 'Padang', tanggalLahir: '2012-11-05' },
+                { nama: 'Azka Yudika Putra', jk: 'L', nisn: '3139952267', tempatLahir: 'Padang', tanggalLahir: '2013-04-18' },
+                { nama: 'Bilqis Aretha', jk: 'P', nisn: '3137777372', tempatLahir: 'Padang', tanggalLahir: '2013-03-20' },
+                { nama: 'CANTIKA SHERLYN NURAWALIA', jk: 'P', nisn: '3122206651', tempatLahir: 'BANDUNG BARAT', tanggalLahir: '2012-07-10' },
+                { nama: 'CASANDRA BERLIANA PUTRI', jk: 'P', nisn: '0137638889', tempatLahir: 'PADANG', tanggalLahir: '2013-01-02' },
+                { nama: 'Chelsea Alyazi', jk: 'P', nisn: '0123122373', tempatLahir: 'Padang', tanggalLahir: '2012-11-10' },
+                { nama: 'DANESH FARINDRIA PUTRI', jk: 'P', nisn: '0132632299', tempatLahir: 'PADANG', tanggalLahir: '2013-02-28' },
+                { nama: 'Derossa Asyila Yoka', jk: 'P', nisn: '0128036666', tempatLahir: 'Padang', tanggalLahir: '2012-09-06' },
+                { nama: 'DHUMAERA PUTRI NALIKA', jk: 'P', nisn: '0136543291', tempatLahir: 'PADANG', tanggalLahir: '2013-02-21' },
+                { nama: 'Dzaky Athaya Rizal', jk: 'L', nisn: '0125343394', tempatLahir: 'Padang', tanggalLahir: '2012-10-02' },
+                { nama: 'DZI GITHA PUTERI', jk: 'P', nisn: '3137542910', tempatLahir: 'Padang', tanggalLahir: '2013-11-26' },
+                { nama: 'Fadia Arsylina Fitri', jk: 'P', nisn: '3135148250', tempatLahir: 'Padang', tanggalLahir: '2013-03-19' },
+                { nama: 'Fakhri Novpriantama', jk: 'L', nisn: '0126615457', tempatLahir: 'Padang', tanggalLahir: '2012-11-17' },
+                { nama: 'Felicia Efendi', jk: 'P', nisn: '3132622615', tempatLahir: 'Padang', tanggalLahir: '2013-07-04' },
+                { nama: 'FIRJANI SYAKIRA', jk: 'P', nisn: '0134176424', tempatLahir: 'PADANG', tanggalLahir: '2013-02-18' },
+                { nama: 'FRANCESCO ALTA', jk: 'L', nisn: '0138668449', tempatLahir: 'PADANG', tanggalLahir: '2013-02-04' },
+                { nama: 'Gathan Attila Rizki', jk: 'L', nisn: '3128281424', tempatLahir: 'Padang', tanggalLahir: '2012-04-02' },
+                { nama: 'HABIBI REYHAN PRATAMA', jk: 'L', nisn: '0132000969', tempatLahir: 'PADANG', tanggalLahir: '2013-06-06' },
+                { nama: 'Habibie Azka Anfi', jk: 'L', nisn: '3139107260', tempatLahir: 'Pematang Siantar', tanggalLahir: '2013-05-16' },
+                { nama: 'Hamdi Joyurivan', jk: 'L', nisn: '0124546746', tempatLahir: 'Padang', tanggalLahir: '2012-09-14' },
+                { nama: 'Hanif Khairi Aswidra', jk: 'L', nisn: '0125852174', tempatLahir: 'Padang', tanggalLahir: '2012-11-25' },
+                { nama: 'Hanifa Aisha Rifela', jk: 'P', nisn: '0131476592', tempatLahir: 'Padang', tanggalLahir: '2013-04-30' },
+                { nama: 'HANIFA PUTRI', jk: 'P', nisn: '0132660436', tempatLahir: 'PADANG', tanggalLahir: '2013-03-19' },
+                { nama: 'Harsha Kioshi Iswandi', jk: 'L', nisn: '3132254427', tempatLahir: 'Padang', tanggalLahir: '2013-01-24' },
+                { nama: 'HASYA MICHAELA YUMNA PUTRI', jk: 'P', nisn: '0127042754', tempatLahir: 'PADANG', tanggalLahir: '2012-10-12' },
+                { nama: 'Haziq Idraki', jk: 'L', nisn: '3127066138', tempatLahir: 'Padang', tanggalLahir: '2012-08-18' },
+                { nama: 'Hikma Nuril Aulia', jk: 'P', nisn: '0138468437', tempatLahir: 'Padang', tanggalLahir: '2013-05-04' },
+                { nama: 'JIHAN FAZILAH', jk: 'P', nisn: '0135958516', tempatLahir: 'PADANG', tanggalLahir: '2013-10-19' },
+                { nama: 'Jihan Sabira Firmansyah', jk: 'P', nisn: '0138560267', tempatLahir: 'Padang', tanggalLahir: '2013-08-19' },
+                { nama: 'KEANO ATHIYYA HARLAN', jk: 'L', nisn: '0124094856', tempatLahir: 'PADANG', tanggalLahir: '2012-08-16' },
+                { nama: 'KENZIE ABQARI', jk: 'L', nisn: '0133938272', tempatLahir: 'PADANG', tanggalLahir: '2013-05-15' },
+                { nama: 'Kenzie Fitrah Agustian', jk: 'L', nisn: '3125475150', tempatLahir: 'Padang', tanggalLahir: '2012-08-25' },
+                { nama: 'KEVAN RADINKA SETIA', jk: 'L', nisn: '3123893364', tempatLahir: 'PADANG', tanggalLahir: '2012-11-12' },
+                { nama: 'Keyzio Ananda Kamal', jk: 'L', nisn: '0135099069', tempatLahir: 'Padang', tanggalLahir: '2013-02-27' },
+                { nama: 'Khairan Zahran Osran', jk: 'L', nisn: '0123107563', tempatLahir: 'Bandung', tanggalLahir: '2012-12-30' },
+                { nama: 'Khalifah Baihaquei', jk: 'L', nisn: '0129881254', tempatLahir: 'Bekasi', tanggalLahir: '2012-04-02' },
+                { nama: 'Khoury Iqnacio', jk: 'L', nisn: '0124590797', tempatLahir: 'Bukittinggi', tanggalLahir: '2012-10-13' },
+                { nama: 'Kivlan Julio Tantasandi', jk: 'L', nisn: '0133665845', tempatLahir: 'Padang', tanggalLahir: '2013-07-25' },
+                { nama: 'Lathifa Maheswari Wizan', jk: 'P', nisn: '0135539484', tempatLahir: 'Padang', tanggalLahir: '2013-02-05' },
+                { nama: 'LUTHFI ALFATIH', jk: 'L', nisn: '0123465490', tempatLahir: 'padang', tanggalLahir: '2012-08-16' },
+                { nama: 'M. Rizki Ramadhan', jk: 'L', nisn: '0136080863', tempatLahir: 'Padang', tanggalLahir: '2013-07-28' },
+                { nama: 'MORIEN MAURILLA', jk: 'P', nisn: '0123420203', tempatLahir: 'PADANG', tanggalLahir: '2012-10-21' },
+                { nama: 'MUHAMMAD DIEGO MICHEL', jk: 'L', nisn: '0134501915', tempatLahir: 'Padang', tanggalLahir: '2013-03-06' },
+                { nama: 'MUHAMMAD GESZA SYAPUTRA', jk: 'L', nisn: '0136985514', tempatLahir: 'PADANG', tanggalLahir: '2013-04-20' },
+                { nama: 'Muhammad Ghazian Nashwan', jk: 'L', nisn: '3121516305', tempatLahir: 'Padang', tanggalLahir: '2012-10-31' },
+                { nama: 'MUHAMMAD GIBRAN', jk: 'L', nisn: '0126145564', tempatLahir: 'PADANG', tanggalLahir: '2012-09-01' },
+                { nama: 'MUHAMMAD HABIBURRAHMAN', jk: 'L', nisn: '0123389895', tempatLahir: 'PADANG', tanggalLahir: '2013-09-08' },
+                { nama: 'MUHAMMAD ILHAM PRATAMA', jk: 'L', nisn: '0133248365', tempatLahir: 'PADANG', tanggalLahir: '2013-03-16' },
+                { nama: 'MUHAMMAD KENZO APRILIO', jk: 'L', nisn: '0131297594', tempatLahir: 'Padang', tanggalLahir: '2013-04-22' },
+                { nama: 'Muhammad Radivo Masril Anugrah', jk: 'L', nisn: '0121820310', tempatLahir: 'Pakan Sinayan', tanggalLahir: '2012-09-19' },
+                { nama: 'Muhammad Rezky Ilyas', jk: 'L', nisn: '3123280502', tempatLahir: 'Padang', tanggalLahir: '2012-06-24' },
+                { nama: 'MUHAMMAD RIZKY INDRAYANA', jk: 'L', nisn: '0121528302', tempatLahir: 'Padang Panjang', tanggalLahir: '2012-07-16' },
+                { nama: 'MUHAMMAD ZIAN ZUMA', jk: 'L', nisn: '3127848579', tempatLahir: 'Padang', tanggalLahir: '2012-05-14' },
+                { nama: 'Nafil Febriansyah', jk: 'L', nisn: '0135358312', tempatLahir: 'Padang', tanggalLahir: '2013-02-26' },
+                { nama: 'Naiyira Dyla Musharrifa', jk: 'P', nisn: '0123315078', tempatLahir: 'Depok', tanggalLahir: '2012-12-02' },
+                { nama: 'Naqiyya Bilqis Nazhifa', jk: 'P', nisn: '3134209278', tempatLahir: 'Padang', tanggalLahir: '2013-02-21' },
+                { nama: 'NAYLA EFVIA DWI PUTRI', jk: 'P', nisn: '3121697835', tempatLahir: 'PADANG', tanggalLahir: '2012-11-28' },
+                { nama: 'Nayya Dwi Adelles', jk: 'P', nisn: '3128020236', tempatLahir: 'Padang', tanggalLahir: '2012-12-05' },
+                { nama: 'Nufaisah Ramadhani', jk: 'P', nisn: '0125051534', tempatLahir: 'Padang', tanggalLahir: '2012-08-03' },
+                { nama: 'Nugraha Alqianu Zico', jk: 'L', nisn: '0137190820', tempatLahir: 'Padang', tanggalLahir: '2013-06-25' },
+                { nama: 'OLIVIA PERMATA FITRI', jk: 'P', nisn: '0115456260', tempatLahir: 'PADANG', tanggalLahir: '2011-11-21' },
+                { nama: 'Olivvia Farlen Safitri', jk: 'P', nisn: '3126707092', tempatLahir: 'Padang', tanggalLahir: '2012-12-13' },
+                { nama: 'PANGLIMA BRILIANDRA RIJATA', jk: 'L', nisn: '0129942756', tempatLahir: 'PADANG', tanggalLahir: '2012-09-24' },
+                { nama: 'Puja resti arimbi', jk: 'P', nisn: '0127480964', tempatLahir: 'Dharmasraya', tanggalLahir: '2012-10-19' },
+                { nama: 'PUTRI NAZJELLA', jk: 'P', nisn: '0135800671', tempatLahir: 'PADANG', tanggalLahir: '2013-03-17' },
+                { nama: 'QUEEN ZAHARA DEFIAN', jk: 'P', nisn: '0121430580', tempatLahir: 'PADANG', tanggalLahir: '2012-09-07' },
+                { nama: 'Radithya Bagaskara Shandri', jk: 'L', nisn: '3125738377', tempatLahir: 'Padang', tanggalLahir: '2012-06-24' },
+                { nama: 'RAFA ARYA HIBATULLAH', jk: 'L', nisn: '0138844659', tempatLahir: 'PADANG', tanggalLahir: '2013-01-11' },
+                { nama: 'Raffa Daniyal Maricci', jk: 'L', nisn: '0133053990', tempatLahir: 'Bukittinggi', tanggalLahir: '2013-06-22' },
+                { nama: 'RAIHANNA NAQQIYA AL MAERA', jk: 'P', nisn: '0132808477', tempatLahir: 'Padang', tanggalLahir: '2013-07-21' },
+                { nama: 'Rakhael Apriyagdi Artawan', jk: 'L', nisn: '3136025994', tempatLahir: 'Padang Pariaman', tanggalLahir: '2013-04-25' },
+                { nama: 'RAMA MIODI KAYANA', jk: 'L', nisn: '0121288083', tempatLahir: 'PADANG', tanggalLahir: '2012-08-15' },
+                { nama: 'Raziq Hadiwilman', jk: 'L', nisn: '0136873020', tempatLahir: 'Padang', tanggalLahir: '2013-03-04' },
+                { nama: 'Revani Listianto', jk: 'P', nisn: '3131699462', tempatLahir: 'Padang', tanggalLahir: '2013-05-04' },
+                { nama: 'REYNA MUTIARA PUTRI', jk: 'P', nisn: '0134509022', tempatLahir: 'PADANG', tanggalLahir: '2013-04-02' },
+                { nama: 'Riyadh Hafizh Qomarri', jk: 'L', nisn: '0137035773', tempatLahir: 'Padang', tanggalLahir: '2013-05-17' },
+                { nama: 'Tabligh Prawira', jk: 'L', nisn: '0138567378', tempatLahir: 'Bungo', tanggalLahir: '2013-01-19' },
+                { nama: 'TANISYA IRANI', jk: 'P', nisn: '0131923913', tempatLahir: 'Padang', tanggalLahir: '2013-03-07' },
+                { nama: 'TEDDY VALENTINO', jk: 'L', nisn: '0131157866', tempatLahir: 'PADANG', tanggalLahir: '2013-06-20' },
+                { nama: 'Wildan Meyzi Al Ghifari', jk: 'L', nisn: '0136829926', tempatLahir: 'Padang', tanggalLahir: '2013-04-25' },
+                { nama: 'YUNIKA BRILYANI', jk: 'P', nisn: '0123856007', tempatLahir: 'PADANG', tanggalLahir: '2012-12-12' },
+                { nama: 'Zaki Allathif', jk: 'L', nisn: '3127600960', tempatLahir: 'Padang', tanggalLahir: '2012-08-16' },
+                { nama: 'Zander Athaya', jk: 'L', nisn: '3125885504', tempatLahir: 'Padang', tanggalLahir: '2012-12-23' },
+                { nama: 'Zhafran Almushlih Haris', jk: 'L', nisn: '0122585117', tempatLahir: 'Padang', tanggalLahir: '2012-08-13' },
+				{ nama:	'Zianda Nackytra Alrizki', jk:'L',nisn:'0133031969', tempatLahir:'Padang',tanggalLahir:'2013-01-31'}
+            ];
+
+            // Get DOM elements
+            const nisnInput = document.getElementById('nisn-input');
+            const searchButton = document.getElementById('search-button');
+            const searchResults = document.getElementById('search-results');
+            /* Removed references to modal elements */
+            // const showAllNisnButton = document.getElementById('show-all-nisn-button');
+            // const nisnModalOverlay = document.getElementById('nisn-modal-overlay');
+            // const modalCloseButton = document.getElementById('modal-close-button');
+            // const nisnList = document.getElementById('nisn-list');
+            // const modalSearchInput = document.getElementById('modal-search-input');
+
+            // Add event listener for search button
+            searchButton.addEventListener('click', performSearch);
+
+            // Add event listener for 'Enter' key on NISN input
+            nisnInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+
+            /* Removed event listeners for modal */
+            // showAllNisnButton.addEventListener('click', () => {
+            //     modalSearchInput.value = '';
+            //     populateNisnList(studentsData);
+            //     nisnModalOverlay.classList.add('active');
+            // });
+
+            // modalCloseButton.addEventListener('click', () => {
+            //     nisnModalOverlay.classList.remove('active');
+            // });
+
+            // nisnModalOverlay.addEventListener('click', (e) => {
+            //     if (e.target === nisnModalOverlay) {
+            //         nisnModalOverlay.classList.remove('active');
+            //     }
+            // });
+
+            // modalSearchInput.addEventListener('keyup', (e) => {
+            //     const searchTerm = e.target.value.toLowerCase();
+            //     const filteredStudents = studentsData.filter(student =>
+            //         student.nama.toLowerCase().includes(searchTerm)
+            //     );
+            //     populateNisnList(filteredStudents);
+            // });
+
+            /**
+             * Fungsi untuk melakukan pencarian data siswa berdasarkan NISN.
+             * Jika data ditemukan, tampilkan data.
+             * Jika tidak ditemukan, berikan keterangan data tidak ditemukan dan
+             * biarkan pengguna mencoba lagi.
+             */
+            function performSearch() {
+                const nisn = nisnInput.value.trim(); // Ambil nilai input dan hapus spasi di awal/akhir
+                searchResults.innerHTML = ''; // Bersihkan hasil pencarian sebelumnya
+
+                // Validasi input NISN
+                if (nisn === '') {
+                    searchResults.innerHTML = '<p class="error-message">Mohon masukkan NISN siswa.</p>';
+                    return;
+                }
+
+                // Cari siswa berdasarkan NISN
+                const student = studentsData.find(s => s.nisn === nisn);
+
+                // Tampilkan hasil pencarian
+                if (student) {
+                    searchResults.innerHTML = `
+                        <h4>Data Kelulusan Siswa</h4>
+                        <div class="student-data">
+                            <p><strong>Nama:</strong> ${student.nama}</p>
+                            <p><strong>Jenis Kelamin:</strong> ${student.jk}</p>
+                            <p><strong>NISN:</strong> ${student.nisn}</p>
+                            <p><strong>Tempat Lahir:</strong> ${student.tempatLahir}</p>
+                            <p><strong>Tanggal Lahir:</strong> ${student.tanggalLahir}</p>
+                            <p><strong>Status:</strong> <span style="color: green; font-weight: bold;">LULUS</span></p>
+                            <p style="margin-top: 20px; font-style: italic;">Selamat atas kelulusan Anda dari SD Negeri 33 Sawahan!</p>
+                        </div>
+                    `;
+                    nisnInput.value = ''; // Kosongkan input setelah data ditemukan untuk pencarian baru
+                } else {
+                    searchResults.innerHTML = '<p class="error-message">NISN tidak ditemukan. Mohon periksa kembali NISN yang Anda masukkan atau coba NISN lain.</p>';
+                }
+            }
+
+            /* populateNisnList function removed as the modal is removed */
+            // function populateNisnList(dataToDisplay) {
+            //     nisnList.innerHTML = '';
+            //     if (dataToDisplay.length === 0) {
+            //         nisnList.innerHTML = '<li>Tidak ada data yang ditemukan.</li>';
+            //         return;
+            //     }
+            //     dataToDisplay.forEach(student => {
+            //         const listItem = document.createElement('li');
+            //         listItem.textContent = `${student.nisn} - ${student.nama}`;
+            //         nisnList.appendChild(listItem);
+            //     });
+            // }
+        });
+    </script>
+</body>
+</html>
